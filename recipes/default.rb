@@ -42,6 +42,8 @@ end
 package 'python-software-properties'
 package 'postgresql-9.1-postgis2'
 
+include_recipe 'postgresql::server'
+
 if node['postgis']['template_name']
   include_recipe 'postgis::_init_database_template'
 end
