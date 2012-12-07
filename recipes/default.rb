@@ -37,6 +37,7 @@ apt_repository 'ppa_ubuntugis_ubuntugis-unstable' do
   keyserver 'keyserver.ubuntu.com'
   key '314DF160'
   deb_src true
+  cache_rebuild true
 end
 
 package 'python-software-properties'
