@@ -12,6 +12,11 @@
 # limitations under the License.
 #
 
+# Include the keys as cookbook files so that we don't need to go out
+# to retrieve keys from key server. This allows the recipe to execute
+# behind a firewall.
+include_recipe 'postgis::_add_keys'
+
 apt_repository 'ppa_sharpie_for-science' do
   uri 'http://ppa.launchpad.net/sharpie/for-science/ubuntu'
   distribution node['lsb']['codename']
