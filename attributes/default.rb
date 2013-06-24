@@ -13,3 +13,4 @@
 #
 
 default['postgis']['template_name'] = 'template_postgis'
+default['postgis']['locale'] = 'en_US.utf8'
