@@ -12,5 +12,7 @@
 # limitations under the License.
 #
 
+#<> Postgis Template Database: The name of the gis database template. Set to nil to disable the creation of the template.
 default['postgis']['template_name'] = 'template_postgis'
+#<> Postgis Template locale: The locale of the database.
 default['postgis']['locale'] = 'en_US.utf8'

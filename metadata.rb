@@ -10,11 +10,3 @@ depends 'apt'
 depends 'postgresql'
 
 supports 'ubuntu'
-
-recipe 'postgis::default', 'Install the Postgis binaries and create the template. Note: this includes the postgresql::server after installing the postgis binaries.'
-
-attribute 'postgis/template_name',
-  :display_name => 'Postgis Template Database',
-  :description => 'The name of the gis database template. Set to nil to disable the creation of the template.',
-  :type => 'string',
-  :default => 'template_postgis'

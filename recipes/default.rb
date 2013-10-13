@@ -12,6 +12,14 @@
 # limitations under the License.
 #
 
+=begin
+#<
+Install the Postgis binaries and create the template.
+
+Note: this includes the postgresql::server after installing the postgis binaries.
+#>
+=end
+
 # Include the keys as cookbook files so that we don't need to go out
 # to retrieve keys from key server. This allows the recipe to execute
 # behind a firewall.
