@@ -4,9 +4,11 @@ maintainer_email 'peter@realityforge.org'
 license          'Apache 2.0'
 description      'Installs/Configures postgis Postgresql extension'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.2.4'
+version          '0.2.5'
 
 depends 'apt'
+depends 'yum'
 depends 'postgresql'
 
 supports 'ubuntu'
+supports 'fedora'

@@ -20,41 +20,48 @@ Note: this includes the postgresql::server after installing the postgis binaries
 #>
 =end
 
-# Include the keys as cookbook files so that we don't need to go out
-# to retrieve keys from key server. This allows the recipe to execute
-# behind a firewall.
-include_recipe 'postgis::_add_keys'
+case node['platform_family']
+when 'fedora'
+  # Already in the default repositories
+  package 'postgis'
+  
+when 'debain'
+  # Include the keys as cookbook files so that we don't need to go out
+  # to retrieve keys from key server. This allows the recipe to execute
+  # behind a firewall.
+  include_recipe 'postgis::_add_keys'
+  
+  apt_repository 'ppa_sharpie_for-science' do
+    uri 'http://ppa.launchpad.net/sharpie/for-science/ubuntu'
+    distribution node['lsb']['codename']
+    components ["main"]
+    keyserver 'keyserver.ubuntu.com'
+    key 'DAF764E2'
+    deb_src true
+  end
 
-apt_repository 'ppa_sharpie_for-science' do
-  uri 'http://ppa.launchpad.net/sharpie/for-science/ubuntu'
-  distribution node['lsb']['codename']
-  components ["main"]
-  keyserver 'keyserver.ubuntu.com'
-  key 'DAF764E2'
-  deb_src true
+  apt_repository 'ppa_sharpie_postgis-stable' do
+    uri 'http://ppa.launchpad.net/sharpie/postgis-stable/ubuntu'
+    distribution node['lsb']['codename']
+    components ['main']
+    keyserver 'keyserver.ubuntu.com'
+    key 'DAF764E2'
+    deb_src true
+  end
+
+  apt_repository 'ppa_ubuntugis_ubuntugis-unstable' do
+    uri 'http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu'
+    distribution node['lsb']['codename']
+    components ['main']
+    keyserver 'keyserver.ubuntu.com'
+    key '314DF160'
+    deb_src true
+    cache_rebuild true
+  end
+
+  package 'python-software-properties'
+  package 'postgresql-9.1-postgis2'
 end
-
-apt_repository 'ppa_sharpie_postgis-stable' do
-  uri 'http://ppa.launchpad.net/sharpie/postgis-stable/ubuntu'
-  distribution node['lsb']['codename']
-  components ['main']
-  keyserver 'keyserver.ubuntu.com'
-  key 'DAF764E2'
-  deb_src true
-end
-
-apt_repository 'ppa_ubuntugis_ubuntugis-unstable' do
-  uri 'http://ppa.launchpad.net/ubuntugis/ubuntugis-unstable/ubuntu'
-  distribution node['lsb']['codename']
-  components ['main']
-  keyserver 'keyserver.ubuntu.com'
-  key '314DF160'
-  deb_src true
-  cache_rebuild true
-end
-
-package 'python-software-properties'
-package 'postgresql-9.1-postgis2'
 
 include_recipe 'postgresql::server'
 
