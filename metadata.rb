@@ -12,3 +12,4 @@ depends 'postgresql'
 
 supports 'ubuntu'
 supports 'fedora'
+supports 'rhel'

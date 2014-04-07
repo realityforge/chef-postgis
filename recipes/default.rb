@@ -21,7 +21,7 @@ Note: this includes the postgresql::server after installing the postgis binaries
 =end
 
 case node['platform_family']
-when 'fedora'
+when 'fedora', 'rhel'
   # Already in the default repositories
   package 'postgis'
   
