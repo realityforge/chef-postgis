@@ -9,12 +9,14 @@ The postgis cookbook installs and configures the Postgis Postgresql extension an
 ## Platform:
 
 * Ubuntu
-* RHEL/Centos/Fedora
+* Fedora
+* Centos
+* Rhel
 
 ## Cookbooks:
 
-* yum
 * apt
+* yum
 * postgresql
 
 # Attributes
