@@ -1,3 +1,7 @@
+## v0.2.6:
+
+* Added support for RHEL and derivatives using package in default repository
+
 ## v0.2.4:
 
 * Allow for overriding the locale used with the createdb command. Submitted by Kirk True.
