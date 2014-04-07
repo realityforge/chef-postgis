@@ -1,6 +1,6 @@
 ## v0.2.6:
 
-* Added support for RHEL and derivatives using package in default repository
+* Added support for RHEL and derivatives using package in default repository. Submitted by Benjamin Roberts.
 
 ## v0.2.4:
 
