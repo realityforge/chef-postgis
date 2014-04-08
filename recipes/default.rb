@@ -25,7 +25,7 @@ when 'fedora', 'rhel', 'centos'
   # Already in the default repositories
   package 'postgis'
   
-when 'debain'
+when 'debian'
   # Include the keys as cookbook files so that we don't need to go out
   # to retrieve keys from key server. This allows the recipe to execute
   # behind a firewall.
