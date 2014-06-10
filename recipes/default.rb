@@ -20,12 +20,8 @@ Note: this includes the postgresql::server after installing the postgis binaries
 #>
 =end
 
-case node['platform_family']
-when 'fedora', 'rhel', 'centos'
-  # Already in the default repositories
-  package 'postgis'
-  
-when 'debian'
+
+if node['platform_family'] == 'debian'
   # Include the keys as cookbook files so that we don't need to go out
   # to retrieve keys from key server. This allows the recipe to execute
   # behind a firewall.
@@ -60,8 +56,9 @@ when 'debian'
   end
 
   package 'python-software-properties'
-  package 'postgresql-9.1-postgis2'
 end
+
+package node['postgis']['package']
 
 include_recipe 'postgresql::server'
 
