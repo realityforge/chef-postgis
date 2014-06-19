@@ -7,9 +7,6 @@ su - postgres -c 'psql --user postgres -d template_postgis -c "select PostGIS_Fu
 
   describe command(get_postgis_version) do
     it { should return_exit_status 0 }
-  end
-
-  describe command(get_postgis_version) do
     it { should return_stdout(/POSTGIS=/) }
   end
 end
