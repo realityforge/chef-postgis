@@ -12,18 +12,9 @@
 # limitations under the License.
 #
 
-cookbook_file "#{Chef::Config[:file_cache_path]}/DAF764E2.key" do
-  source "DAF764E2.key"
-  mode "0600"
-end
-
 cookbook_file "#{Chef::Config[:file_cache_path]}/314DF160.key" do
   source "314DF160.key"
   mode "0600"
-end
-
-execute "apt-key adv --import #{Chef::Config[:file_cache_path]}/DAF764E2.key" do
-  not_if 'apt-key list | grep "DAF764E2"'
 end
 
 execute "apt-key adv --import #{Chef::Config[:file_cache_path]}/314DF160.key" do
