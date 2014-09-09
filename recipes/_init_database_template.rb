@@ -7,16 +7,7 @@ CMD
   action :run
 end
 
-if node['platform'] == 'ubuntu' && node['platform_version'].to_f <= 12.04
-  execute 'create_postgis_extension' do
-    user 'postgres'
-    command <<CMD
-(psql -d #{node['postgis']['template_name']} -f `pg_config --sharedir`/contrib/postgis-2.0/postgis.sql) &&
-(psql -d #{node['postgis']['template_name']} -f `pg_config --sharedir`/contrib/postgis-2.0/spatial_ref_sys.sql)
-CMD
-    action :run
-  end
-else
+if node['platform'] == 'ubuntu' && node['platform_version'].to_f <= 14.04
   execute 'create_postgis_extension' do
     user 'postgres'
     command <<CMD
