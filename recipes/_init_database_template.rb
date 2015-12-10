@@ -7,7 +7,7 @@ CMD
   action :run
 end
 
-if node['platform'] == 'ubuntu' && node['platform_version'].to_f <= 12.04
+if node['platform'] == 'ubuntu' && node['platform_version'].to_f <= 12.04 && node['postgis']['package'] == 'postgresql-9.1-postgis2'
   execute 'create_postgis_extension' do
     user 'postgres'
     command <<CMD
