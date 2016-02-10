@@ -1,3 +1,7 @@
+## v0.4.0:
+
+* Added key for including postgresql recipe. Submitted by André Hester.
+
 ## v0.2.6:
 
 * Added support for RHEL and derivatives using package in default repository. Submitted by Benjamin Roberts.

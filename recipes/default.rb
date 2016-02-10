@@ -62,9 +62,10 @@ end
 
 package node['postgis']['package']
 
-include_recipe 'postgresql::server'
+if node['postgis']['include_postgresql_cookbook']
+  include_recipe 'postgresql::server'
+end
 
 if node['postgis']['template_name']
   include_recipe 'postgis::_init_database_template'
 end
-
