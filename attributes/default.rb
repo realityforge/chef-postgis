@@ -17,6 +17,9 @@ default['postgis']['template_name'] = 'template_postgis'
 #<> Postgis Template locale: The locale of the database.
 default['postgis']['locale'] = 'en_US.utf8'
 
+#<> Include `postgresql::server` recipe.
+default['postgis']['include_postgresql_cookbook'] = true
+
 case node['platform_family']
 when 'fedora', 'rhel', 'centos'
   default['postgis']['package'] = 'postgis'
@@ -27,4 +30,3 @@ when 'debian'
     default['postgis']['package'] = 'postgresql-9.3-postgis-2.1'
   end
 end
-

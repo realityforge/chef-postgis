@@ -23,6 +23,7 @@ The postgis cookbook installs and configures the Postgis Postgresql extension an
 
 * `node['postgis']['template_name']` - Postgis Template Database: The name of the gis database template. Set to nil to disable the creation of the template. Defaults to `template_postgis`.
 * `node['postgis']['locale']` - Postgis Template locale: The locale of the database. Defaults to `en_US.utf8`.
+* `node['postgis']['include_postgresql_cookbook']` - Include `postgresql::server` cookbook. Defaults to `true`.
 
 # Recipes
 
