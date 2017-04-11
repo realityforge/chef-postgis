@@ -18,10 +18,16 @@ platforms:
   run_list:
   - recipe[apt]
 
+verifier:
+  name: inspec
+
 suites:
 - name: default
   run_list:
   - recipe[postgis::default]
+  verifier:
+    inspec_tests:
+      - test/smoke/default
   attributes:
     postgresql:
       password:
