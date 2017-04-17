@@ -60,10 +60,14 @@ if node['platform_family'] == 'debian'
   end
 end
 
-package node['postgis']['package']
-
 if node['postgis']['include_postgresql_cookbook']
   include_recipe 'postgresql::server'
+end
+
+package node['postgis']['package']
+
+if node['postgresql']['enable_pgdg_apt'] == true and node['platform_family'] == 'debian'
+    package "#{node['postgis']['package']}-scripts"
 end
 
 if node['postgis']['template_name']

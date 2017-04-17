@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'berkshelf'
 gem 'test-kitchen'
 gem 'kitchen-vagrant'
+gem 'kitchen-inspec'
 gem 'busser-serverspec'
 
 # Uncomment these lines if you want to live on the Edge:
